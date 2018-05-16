@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title> admin page </title>
+    <meta charset="UTF-8"> </meta>
+    <link  type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<p align="right" >
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<div class="adminButtonCont">
+<form th:action="@{/admin/controlGroups}" method="POST">
+    <input class="buttonControl buttons" type="submit" value="Управление группами"/>
+</form>
+
+<form th:action="@{/admin/controlTests}" method="POST">
+    <input class="buttons buttonControl" type="submit" value="Управление тестами"/>
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>add question page </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1 th:text="'Добавить вопрос по теме '+${subjectName}"></h1>
+
+<form class="fonts" th:action="@{/tests/saveQuestion/}+${subjectId}" method="post">
+    <label for="formulation">Вопрос</label>:
+    <input type="text" id="formulation" name="formulation" autofocus="autofocus" autocomplete="off"/> <br/>
+    <label for="questionNum">Номер</label>:
+    <input type="text" id="questionNum" name="questionNum" autofocus="autofocus" autocomplete="off"/> <br/>
+    <div class="saveButtonCont">
+    <input class="buttons" type="submit" value="Добавить"/>
+    </div>
+</form>
+<form th:action="@{/tests/editSubject/}+${subjectId}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+</body>
+</html>

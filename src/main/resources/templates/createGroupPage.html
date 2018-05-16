@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> create group </title>
+    <meta charset="UTF-8">
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    </meta>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+<h1> Создание группы </h1>
+
+<form class="fonts" th:action="@{/groups/saveGroup}" method="post">
+    <label for="groupName">Группа</label>:
+    <input type="text" id="groupName" name="groupName" autofocus="autofocus" autocomplete="off"/> <br/>
+    <div class="saveButtonCont">
+        <input class="buttons" type="submit" value="Сохранить"/>
+    </div>
+
+</form>
+<form th:action="@{/groups}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> edit answer </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1 th:text="'Редактировать ответ на вопрос '+${questionFormulation}"></h1>
+
+<form class="fonts" th:action="@{/tests/}+${questionId}+@{/updateAnswer/}+${answerId}" method="post">
+    <label for="answerFormulation">Ответ</label>:
+    <input type="text" id="answerFormulation" name="answerFormulation" th:value="${answerFormulation}"
+           autofocus="autofocus" autocomplete="off"/> <br/>
+    <p th:if="${answerTrueness}">
+        <input type="checkbox" id="trueness" name="trueness" checked="checked"/>
+        <label for="trueness">Верный</label>
+    </p>
+    <p th:unless="${answerTrueness}">
+        <input type="checkbox" id="trueness" name="trueness"/>
+        <label for="trueness">Верный</label>
+    </p>
+    <div class="saveButtonCont">
+    <input class="buttons" type="submit" value="Сохранить"/>
+    </div>
+</form>
+
+<form th:action="@{/tests/}+${subjectId}+@{/editQuestion/}+${questionId}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+</body>
+</html>

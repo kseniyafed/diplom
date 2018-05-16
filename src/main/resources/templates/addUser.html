@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> add user </title>
+
+</head>
+<body>
+<h3> Add User </h3>
+<p th:if="${param.error}">
+    Bad Credentials
+</p>
+<form th:action="@{/user/create}" method="POST">
+    User Name : <input type="text" name="app_name"/> <br/><br/>
+    User Surname: <input type="text" name="app_surname"/> <br/><br/>
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>

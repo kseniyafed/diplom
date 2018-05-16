@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title> student page </title>
+    <meta charset="UTF-8"> </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right" >
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1>Темы</h1>
+
+<table class="fonts">
+    <tr th:each="subject : ${subjects}">
+        <td>
+            <a th:href="@{/student/subject/}+${subject.id}" th:text="${subject.name}">Name</a>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

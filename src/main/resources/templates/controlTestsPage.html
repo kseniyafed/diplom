@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> control tests </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link  type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1>Тесты</h1>
+
+<form th:action="@{/tests/createSubject}" method="post">
+    <div class="addButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+<table>
+    <tr class="fonts" th:each="subject: ${subjects}">
+        <td th:text="${subject.num}"></td>
+
+        <td th:text="${subject.name}"></td>
+
+        <td>
+            <form th:action="@{/tests/deleteSubject/}+${subject.id}" method="post">
+                <div class="deleteButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+
+        <td>
+            <form th:action="@{/tests/editSubject/}+${subject.id}" method="post">
+                <div class="editButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/admin}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+
+</body>
+</html>

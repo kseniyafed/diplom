@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> student page </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1 th:text="'Редактировать вопрос темы '+${subjectName}"></h1>
+
+<form class="fonts" th:action="@{/tests/}+${subjectId}+@{/updateQuestion/}+${questionId}" method="post">
+    <label for="questionNum">Номер</label>:
+    <input type="text" id="questionNum" name="questionNum" th:value="${questionNum}" autofocus="autofocus"
+           autocomplete="off"/> <br/>
+
+    <label for="questionFormulation">Вопрос</label>:
+    <input type="text" id="questionFormulation" name="questionFormulation" th:value="${questionFormulation}"
+           autofocus="autofocus" autocomplete="off"/> <br/>
+    <div class="saveButtonCont">
+    <input class="buttons" type="submit" value="Сохранить"/>
+    </div>
+</form>
+<h2 align="left"> Варианты ответов: </h2>
+<form  th:action="@{/tests/addAnswer/}+${questionId}" method="post">
+
+    <div class="addButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+
+</form>
+<table>
+
+    <tr th:each="answer : ${answers}">
+        <td>
+            <p th:if="${answer.trueness}"><input type="checkbox" checked="checked" disabled="disabled"/></p>
+
+        </td>
+        <td th:text="${answer.formulation}">Name</td>
+
+        <td>
+            <form th:action="@{/tests/}+${questionId}+@{/deleteAnswer/}+${answer.id}" method="post">
+                <div class="deleteButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+
+        <td>
+            <form th:action="@{/tests/}+${questionId}+@{/editAnswer/}+${answer.id}" method="post">
+                <div class="editButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+<form th:action="@{/tests/editSubject/}+${subjectId}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+
+</body>
+</html>

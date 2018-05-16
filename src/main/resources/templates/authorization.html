@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Authorization</title>
+    <meta  charset="UTF-8"/>
+
+
+    <link  type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body class="authoFonts">
+<h1>Вход</h1>
+<p th:if="${loginError}" class="error">Неверный логин или пароль!</p>
+
+<form th:action="@{/login}" method="post">
+
+    <div class="loginAndPassCont">
+    <label  for="username">Логин</label>:
+    <input class="authoInput" type="text" id="username" name="username" autofocus="autofocus" /> <br />
+    <label  for="password">Пароль</label>:
+    <input class="authoInput" type="password" id="password" name="password" /> <br />
+
+    <div class="authoButtonCont">
+    <input class="buttons authoButton" type="submit" value="Войти" />
+    </div>
+    </div>
+</form>
+</body>
+</html>

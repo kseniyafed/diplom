@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>add student page </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1 th:text="'Добавить студента в группу '+${groupName}"></h1>
+
+<form class="fonts" th:action="@{/groups/saveStudent/}+${groupId}" method="post">
+    <label for="name">ФИО</label>:
+    <input type="text" id="name" name="name" autofocus="autofocus" autocomplete="off"/> <br/>
+    <label for="login">Логин</label>:
+    <input type="text" id="login" name="login" autofocus="autofocus" autocomplete="off"/> <br/>
+    <label for="password">Пароль</label>:
+    <input type="text" id="password" name="password"/> <br/>
+    <div class="saveButtonCont">
+    <input class="buttons" type="submit" value="Добавить"/>
+    </div>
+</form>
+<form th:action="@{/groups}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+</body>
+</html>

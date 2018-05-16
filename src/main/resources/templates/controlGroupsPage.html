@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> control groups </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link  type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body >
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+<h1> Группы </h1>
+
+<form th:action="@{/groups/createGroup}" method="post">
+    <div class="addButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+<table>
+    <tr th:each="group: ${groups}">
+        <td>
+            <a class="fonts" th:href="@{/groups/groupPage/}+${group.id}" th:text="${group.name}"> </a>
+        </td>
+
+        <td>
+            <form th:action="@{/groups/deleteGroup/}+${group.id}" method="post">
+                <div class="deleteButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+
+        <td>
+            <form th:action="@{/groups/editGroup/}+${group.id}" method="post">
+                <div class="editButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/admin}" method="post">
+    <div class="backButtons">
+    <input type="submit" value="Submit"/>
+</div>
+</form>
+
+
+</body>
+</html>

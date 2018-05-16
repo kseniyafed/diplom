@@ -1,0 +1,220 @@
+body {
+    background: aliceblue;
+
+    color:steelblue;
+    text-align: center;
+}
+.authoFonts{
+    font: bold 200% serif;
+}
+.fonts{
+    font: bold 150% serif;
+    color:steelblue;
+
+}
+.mark{
+    font: bold 550% serif;
+    color:steelblue;
+}
+.outFonts{
+    font: bold 100% serif;
+    color:steelblue;
+}
+.authoInput{
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 24px;
+}
+
+.adminButtonCont{
+    padding: 160px;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    border: 3px ;
+}
+.authoButtonCont {
+    padding: 40px;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    border: 3px ;
+}
+.saveButtonCont {
+    padding: 40px;
+    height: 40px;
+    position: relative;
+
+    border: 3px ;
+}
+.loginAndPassCont {
+    padding: 60px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    border: 3px ;
+}
+.buttons{
+    position: relative;
+    display: inline-block;
+    line-height: 2.5em;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #777;
+    color:azure;
+    outline: none;
+    /*border: 2px solid #F64C2B;*/
+    border-radius: 2px;
+    /*box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;*/
+    background: steelblue;
+}
+
+.buttonControl{
+    width: 300px;
+    height: 2.5em;
+}
+
+.authoButton{
+    width: 100px;
+    height: 2.5em;
+}
+.editButtons{
+    width: 110px;
+    height: 35px;
+}
+
+form .backButtons input{
+    display: block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -9000px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    cursor:pointer;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-image: url("../icons/back.png");
+}
+form .addButtons input{
+    display: block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -9000px;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor:pointer;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-image: url("../icons/add.png");
+}
+
+form .nextButtons input{
+    display: block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -9000px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    cursor:pointer;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-image: url("../icons/next.png");
+}
+form .deleteButtons input{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -9000px;
+    background-size: 100%;
+    cursor:pointer;
+    border: none;
+    outline: none;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url("../icons/delete.png");
+}
+form .editButtons input{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -9000px;
+    background-size: 100%;
+    cursor:pointer;
+    border: none;
+    outline: none;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url("../icons/edit.png");
+}
+
+#main-content {
+    max-width: 940px;
+    padding: 2em 3em;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+progr {
+    width: 300px;
+    margin: 50px auto 0;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, .2);
+}
+progress {
+    border:0;
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0px 3px 3px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 3px 3px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+progress::-webkit-progress-bar {
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0px 3px 3px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 3px 3px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+progress::-webkit-progress-value {
+    border-radius: 5px;
+    background: steelblue;
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=0 ); /* IE6-9 */
+}
+progress::-moz-progress-bar {
+    border-radius: 5px;
+    background: steelblue;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=0 ); /* IE6-9 */
+}

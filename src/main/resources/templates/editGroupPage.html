@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> edit group </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1>Редактор групп</h1>
+
+<form class="fonts" th:action="@{/groups/saveChanges/}+${groupId}" method="post">
+    <label for="groupName">Группа</label>:
+    <input type="text" th:value="${groupName}" id="groupName" name="groupName" autofocus="autofocus"
+           autocomplete="off"/> <br/>
+    <div class="saveButtonCont">
+    <input class="buttons" type="submit" value="Сохранить"/>
+    </div>
+</form>
+
+<form th:action="@{/groups/addStudent/}+${groupId}" method="post">
+    <div class="addButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+<table class="fonts">
+    <thead>
+
+    <tr>
+        <td>Имя</td>
+        <td>Логин</td>
+        <td>Пароль</td>
+
+    </tr>
+    </thead>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.name}">Name</td>
+        <td th:text="${student.login}">Login</td>
+        <td th:text="${student.password}">Password</td>
+
+        <td>
+            <form th:action="@{/groups/}+${groupId}+@{/deleteStudent/}+${student.id}" method="post">
+                <div class="deleteButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+
+        <td>
+            <form th:action="@{/groups/}+${groupId}+@{/editStudent/}+${student.id}" method="post">
+                <div class="editButtons">
+                    <input type="submit" value="Submit"/>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+<form th:action="@{/groups}" method="post">
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+</body>
+</html>

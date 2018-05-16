@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> group page </title>
+    <meta charset="UTF-8">
+    </meta>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<p align="right">
+    <a class="outFonts" th:href="@{/logout}"> Выход</a>
+</p>
+
+<h1 th:text="'Отчет по группе '+${groupName}"></h1>
+
+<table class="fonts">
+    <thead>
+
+    <tr>
+        <td>Имя</td>
+        <td th:each="subject : ${subjects}" th:text="'Тема № '+${subject.num}"></td>
+
+    </tr>
+    </thead>
+    <tr th:each="student : ${students} ">
+        <td th:text="${student.getName()}"></td>
+
+        <td th:each="result : ${results}" th:if="${student.getId()}==${result.getUser().getId()}"
+            th:text="${result.mark}"></td>
+    </tr>
+
+
+</table>
+
+<form th:action="@{/admin/controlGroups}" method="post">
+
+    <div class="backButtons">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+</body>
+</html>
