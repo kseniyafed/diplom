@@ -97,8 +97,26 @@ public class StudentController {
             model.addAttribute("answers", question.getAnswers());
             model.addAttribute("step", 100/(subject.getQuestions().size()-1));
             model.addAttribute("position", (question.getNum()-1)*100/(subject.getQuestions().size()-1));
+
+            String str = "";
+            int[] positions = new int[subject.getQuestions().size()+1];
+
+            Iterable<State> statesBySubject = stateService.getStateBySubject(subject);
+            for (State state : statesBySubject) {
+                positions[state.getPosition()]++;
+                // state.getUser();
+            }
+            for (int i=0; i<positions.length; i++ ){
+                str+=(i+1)+": "+positions[i]+ ", ";
+            }
+            System.out.println(str);
+
+
             return "subjectPage";
         }
+
+
+
 
     }
 

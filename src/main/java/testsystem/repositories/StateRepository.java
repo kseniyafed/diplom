@@ -13,5 +13,7 @@ public interface StateRepository extends CrudRepository<State,Long> {
 
     void deleteStateByUserAndSubject(User user, Subject subject);
 
+    Iterable<State> getAllBySubject(Subject subject);
 
+    void deleteStateByUser(User user);
 }

@@ -22,23 +22,29 @@
             this.client = Stomp.over(this.socket);
 //            this.client.debug = null;
             this.client.connect({}, function (frame) {
-                stompClient.client.subscribe('/topic/pingpong', function (events) {
+                stompClient.client.subscribe('/topic/subject', function (events) {
                     stompClient.consume(events);
+
+
                 });
             });
         },
         consume: function (raw) {
             console.log(raw);
+
         },
         close: function () {
             if (this.client != null) {
-                this.client.unsubscribe('/topic/pingpong');
+                this.client.unsubscribe('/topic/subject');
                 this.client.disconnect();
                 this.client = null;
+
             }
         }
     };
 
+    var str = [[${str}]];
+    console.log(str);
     $("#ping").click(function() {
         stompClient.client.send("/app/ping", {}, "");
     })

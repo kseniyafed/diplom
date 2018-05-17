@@ -23,4 +23,13 @@ public class StateService {
     @Transactional
     public void deleteState(User user, Subject subject) { stateRepository.deleteStateByUserAndSubject(user, subject);
     }
+
+    public Iterable<State> getStateBySubject(Subject subject) {
+        return stateRepository.getAllBySubject(subject);
+    }
+
+    @Transactional
+    public void deleteStateByUser(User user) {
+        stateRepository.deleteStateByUser(user);
+    }
 }
