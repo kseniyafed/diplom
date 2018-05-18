@@ -93,10 +93,12 @@ public class StudentController {
             Question question = questionService.getByNumAndIdSubject(test.getNumber(), subject);
             model.addAttribute("questionFormulation", question.getFormulation());
             model.addAttribute("subjectName", subject.getName());
+            model.addAttribute("questions", subject.getQuestions());
             model.addAttribute("subjectId", subject.getId());
             model.addAttribute("answers", question.getAnswers());
             model.addAttribute("step", 100/(subject.getQuestions().size()-1));
-            model.addAttribute("position", (question.getNum()-1)*100/(subject.getQuestions().size()-1));
+            model.addAttribute("position", (question.getNum()));
+         //   model.addAttribute("position", (question.getNum()-1)*100/(subject.getQuestions().size()-1));
 
             String str = "";
             int[] positions = new int[subject.getQuestions().size()+1];

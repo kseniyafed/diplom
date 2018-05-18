@@ -19,7 +19,7 @@ public class Subject {
     private List<Result> results = new ArrayList<Result>();
 
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject",fetch = FetchType.EAGER)
     @OrderBy("num ASC")
     private List<Question> questions = new ArrayList<Question>();
 

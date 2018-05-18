@@ -31,28 +31,34 @@ class SubjectWSController {
 
     /**
      *
-     * @param subject
+     * @param id
      * @return "1: 4, 2: 9, 3: 0, 4: 2"
      */
     @MessageMapping("/subject")
     @SendTo("/topic/subject")
-    public String getSubject(Subject subject) {
+    public String getSubject(long id) {
 //        String[] parseRequest = request.getServletPath().split("/");
 //        Subject subject = subjectService.getById(Long.valueOf(parseRequest[3]));
+        Subject subject = subjectService.getById(id);
 
-        String str = "";
-        int[] positions = new int[subject.getQuestions().size()+1];
+        StringBuilder str = new StringBuilder();
+        int[] positions = new int[subject.getQuestions().size()];
 
         Iterable<State> statesBySubject = this.states.getStateBySubject(subject);
         for (State state : statesBySubject) {
             positions[state.getPosition()]++;
            // state.getUser();
         }
+        str.append("[");
         for (int i=0; i<positions.length; i++ ){
-            str+=(i+1)+": "+positions[i]+ ", ";
+            str.append(positions[i])
+                    .append(", ");
         }
+//        System.out.print(subject.);
+        str.delete(str.length()-2, str.length()-1 );
+        str.append("]");
         //model.addAttribute("str", str);
-       return str;
+       return str.toString();
        /// return "mmm";
 
     }

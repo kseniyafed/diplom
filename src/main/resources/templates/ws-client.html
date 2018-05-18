@@ -14,6 +14,8 @@
 <button id="disconnect">Disconnect</button>
 
 <script th:inline="javascript">
+    const body = $("body");
+
     var stompClient = {
         client: null,
         socket: null,
@@ -24,7 +26,12 @@
             this.client.connect({}, function (frame) {
                 stompClient.client.subscribe('/topic/subject', function (events) {
                     stompClient.consume(events);
-
+                    console.log(events);
+                    var massStr = JSON.stringify(events.body);
+                    var keys = JSON.parse(events.body);
+                    keys.forEach(function (studentCount, questIndex){
+                        body.append("<div>" + questIndex + ": " + studentCount + "</div>");
+                    });
 
                 });
             });
@@ -43,10 +50,11 @@
         }
     };
 
-    var str = [[${str}]];
-    console.log(str);
+
     $("#ping").click(function() {
         stompClient.client.send("/app/ping", {}, "");
+        stompClient.client.send("/app/subject",{}, 449 );
+
     })
 
     $("#disconnect").click(function() {

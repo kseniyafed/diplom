@@ -1,22 +1,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.4/lib/stomp.js"></script>
+    <script src="/webjars/jquery/3.1.0/jquery.js"></script>
     <title> student page </title>
     <meta charset="UTF-8">
     </meta>
     <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
+
 <body>
+
+<script th:inline="javascript">
+    const body = $("body");
+
+    var stompClient = {
+        client: null,
+        socket: null,
+        connect: function () {
+            this.socket = new SockJS('/websocket');
+            this.client = Stomp.over(this.socket);
+//            this.client.debug = null;
+            this.client.connect({}, function (frame) {
+                stompClient.client.subscribe('/topic/subject', function (events) {
+                    stompClient.consume(events);
+                    console.log(events);
+                    var massStr = JSON.stringify(events.body);
+                    var keys = JSON.parse(events.body);
+                    keys.forEach(function (studentCount, questIndex){
+                        $('#questionCell' + questIndex).text(studentCount.toString());
+                    });
+
+                });
+            });
+        },
+        consume: function (raw) {
+            console.log(raw);
+
+        },
+        close: function () {
+            if (this.client != null) {
+                this.client.unsubscribe('/topic/subject');
+                this.client.disconnect();
+                this.client = null;
+
+            }
+        }
+    };
+    stompClient.connect();
+    setInterval(function(){
+        stompClient.client.send("/app/subject",{}, [[${subjectId}]] ); console.log("nn");
+    }, 1000);
+
+
+
+</script>
 
 <p align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
 
 <h1 th:text="${subjectName}"></h1>
-<p>
-    <progr >
-        <progress id="progressbar" th:value="${position}" th:step="${step}" max="100"></progress>
-    </progr>
+<p th:align="center" >
+<table id="mainTable">
+    <tr>
+        <td  th:each="question : ${questions}" th:text="${question.getNum()}" th:style="${position} == ${question.getNum()} ?  'background:red' : 'background:none' "></td>
+
+    </tr>
+    <tr>
+        <td th:id="'questionCell'+ ${question.getNum()-1}" th:each="question : ${questions}" th:text="0"></td>
+    </tr>
+</table>
 </p>
+
 <h2 th:text="'Вопрос: '+${questionFormulation}"></h2>
 
 <form th:action="@{/student/subject/}+${subjectId}" method="POST">
