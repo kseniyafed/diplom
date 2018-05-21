@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1>Тесты</h1>
+<workSpace>
+    <container>
+<h1>✔️ Тесты</h1>
 
 <form th:action="@{/tests/createSubject}" method="post">
     <div class="addButtons">
@@ -21,7 +22,7 @@
 
 <table>
     <tr class="fonts" th:each="subject: ${subjects}">
-        <td th:text="${subject.num}"></td>
+        <td th:text="'🔘'+${subject.num}"></td>
 
         <td th:text="${subject.name}"></td>
 
@@ -42,7 +43,8 @@
         </td>
     </tr>
 </table>
-
+        </container>
+    </workSpace>
 <form th:action="@{/admin}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>

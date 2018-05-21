@@ -56,24 +56,25 @@
 
 </script>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
+<workSpace>
+    <container>
 <h1 th:text="${subjectName}"></h1>
 <p th:align="center" >
-<table id="mainTable">
+<table class="fonts resultTable" id="mainTable">
     <tr>
-        <td  th:each="question : ${questions}" th:text="${question.getNum()}" th:style="${position} == ${question.getNum()} ?  'background:red' : 'background:none' "></td>
+        <td class="stateTh1"  th:each="question : ${questions}" th:text="${question.getNum()}" th:style="${position} == ${question.getNum()} ?  'background:#f1f1f1' : 'background:none' "></td>
 
     </tr>
     <tr>
-        <td th:id="'questionCell'+ ${question.getNum()-1}" th:each="question : ${questions}" th:text="0"></td>
+        <td  class="stateTh2" th:id="'questionCell'+ ${question.getNum()-1}" th:each="question : ${questions}" th:text="0"></td>
     </tr>
 </table>
 </p>
 
-<h2 th:text="'Вопрос: '+${questionFormulation}"></h2>
+<h2 th:text="'✔️Вопрос: '+${questionFormulation}"></h2>
 
 <form th:action="@{/student/subject/}+${subjectId}" method="POST">
     <table>
@@ -85,11 +86,14 @@
             <td th:text="${answer.formulation}">Formulation</td>
         </tr>
     </table>
+
+
     <div class="nextButtons">
         <input type="submit" value="Submit"/>
     </div>
 </form>
 
-
+    </container>
+</workSpace>
 </body>
 </html>

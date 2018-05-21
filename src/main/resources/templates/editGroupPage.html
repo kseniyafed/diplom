@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1>Редактор групп</h1>
+<workSpace>
+    <container>
+<h1>📋Редактор групп</h1>
 
 <form class="fonts" th:action="@{/groups/saveChanges/}+${groupId}" method="post">
     <label for="groupName">Группа</label>:
@@ -28,22 +29,22 @@
     </div>
 </form>
 
-<table class="fonts">
+<table class="fonts resultTable">
     <thead>
 
     <tr>
-        <td>Имя</td>
-        <td>Логин</td>
-        <td>Пароль</td>
+        <th class="resultTh">Имя</th>
+        <th class="resultTh">Логин</th>
+        <th class="resultTh">Пароль</th>
 
     </tr>
     </thead>
     <tr th:each="student : ${students}">
-        <td th:text="${student.name}">Name</td>
-        <td th:text="${student.login}">Login</td>
-        <td th:text="${student.password}">Password</td>
+        <td class="resultTd" th:text="${student.name}">Name</td>
+        <td class="resultTd" th:text="${student.login}">Login</td>
+        <td  class="resultTd" th:text="${student.password}">Password</td>
 
-        <td>
+        <td >
             <form th:action="@{/groups/}+${groupId}+@{/deleteStudent/}+${student.id}" method="post">
                 <div class="deleteButtons">
                     <input type="submit" value="Submit"/>
@@ -60,9 +61,9 @@
         </td>
     </tr>
 </table>
-
-
-
+<br/>
+        </container>
+    </workSpace>
 <form th:action="@{/groups}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>

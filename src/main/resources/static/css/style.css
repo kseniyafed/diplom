@@ -1,24 +1,90 @@
 body {
-    background: aliceblue;
-
-    color:steelblue;
+    background: #f1f1f1 ;
+    color:#546e7a;
     text-align: center;
 }
+a {
+    text-decoration: none ;
+
+}
+.headerStyle {
+    display: block;
+    background-image: url("../icons/header.png");
+    height: 150px;
+
+}
+workSpace{
+    background: white ;
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: -1.5%;
+
+    box-shadow: 0 0 5px 2px;
+
+}
+container{
+
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+.stateTh1{
+    background: #AFCDE7;
+    color: #546e7a;;
+    padding: 10px 20px;
+    border-color: white;
+}
+.stateTh2{
+    background: #D8E6F3;
+    color: #546e7a;;
+    padding: 10px 20px;
+    border-color: white;
+}
+.resultTable {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+}
+.resultTh, .resultTd:first-child {
+    background: #AFCDE7;
+    color: white;
+    padding: 10px 20px;
+}
+.resultTh, .resultTd {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+    background: #AFCDE7;
+}
+.resultTd {
+    background: #D8E6F3;
+}
+.resultTh:first-child, .resultTd:first-child {
+    text-align: left;
+}
+/*.resultTable {*/
+    /*border-collapse: collapse;*/
+    /*border: 1px solid grey;*/
+/*}*/
 .authoFonts{
     font: bold 200% serif;
 }
 .fonts{
     font: bold 150% serif;
-    color:steelblue;
+    color:#546e7a;
 
 }
 .mark{
     font: bold 550% serif;
-    color:steelblue;
+    color:#546e7a;
 }
 .outFonts{
     font: bold 100% serif;
-    color:steelblue;
+    color:#546e7a;
 }
 .authoInput{
     border: 1px solid #cccccc;
@@ -68,7 +134,7 @@ body {
     /*border: 2px solid #F64C2B;*/
     border-radius: 2px;
     /*box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;*/
-    background: steelblue;
+    background: #546e7a;
 }
 
 .buttonControl{
@@ -142,7 +208,7 @@ form .deleteButtons input{
     background-repeat: no-repeat;
     background-position: 0 0;
     padding: 0;
-    margin: 0;
+    margin-top: 15px;
     text-indent: -9000px;
     background-size: 100%;
     cursor:pointer;
@@ -158,7 +224,7 @@ form .editButtons input{
     background-repeat: no-repeat;
     background-position: 0 0;
     padding: 0;
-    margin: 0;
+    margin-top: 17px;
     text-indent: -9000px;
     background-size: 100%;
     cursor:pointer;
@@ -209,12 +275,12 @@ progress::-webkit-progress-bar {
 }
 progress::-webkit-progress-value {
     border-radius: 5px;
-    background: steelblue;
+    background: #546e7a;
 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=0 ); /* IE6-9 */
 }
 progress::-moz-progress-bar {
     border-radius: 5px;
-    background: steelblue;
+    background: #546e7a;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=0 ); /* IE6-9 */
 }

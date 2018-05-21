@@ -7,10 +7,12 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-<h1> Создание группы </h1>
+<workSpace>
+    <container>
+<h1> 📰Создание группы </h1>
 
 <form class="fonts" th:action="@{/groups/saveGroup}" method="post">
     <label for="groupName">Группа</label>:
@@ -20,10 +22,13 @@
     </div>
 
 </form>
+        </container>
+    </workSpace>
 <form th:action="@{/groups}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>
     </div>
 </form>
+
 </body>
 </html>

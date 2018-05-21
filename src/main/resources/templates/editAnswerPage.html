@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1 th:text="'Редактировать ответ на вопрос '+${questionFormulation}"></h1>
+<workSpace>
+    <container>
+<h1 th:text="'📑Редактировать ответ на вопрос '+${questionFormulation}"></h1>
 
 <form class="fonts" th:action="@{/tests/}+${questionId}+@{/updateAnswer/}+${answerId}" method="post">
     <label for="answerFormulation">Ответ</label>:
@@ -29,7 +30,8 @@
     <input class="buttons" type="submit" value="Сохранить"/>
     </div>
 </form>
-
+        </container>
+    </workSpace>
 <form th:action="@{/tests/}+${subjectId}+@{/editQuestion/}+${questionId}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>

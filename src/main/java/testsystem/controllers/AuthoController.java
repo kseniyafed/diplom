@@ -48,10 +48,10 @@ public class AuthoController {
         response.sendRedirect("/login");
 
     }
-
-    @RequestMapping(value = "/client", method = RequestMethod.GET)
-    public String client() {
-        return "ws-client";
-    }
+//
+//    @RequestMapping(value = "/client", method = RequestMethod.GET)
+//    public String client() {
+//        return "ws-client";
+//    }
 
 }

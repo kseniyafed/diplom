@@ -4,13 +4,14 @@
     <meta charset="UTF-8"> </meta>
     <link  type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
+
+    <p class="headerStyle" align="right" >
+        <a class="outFonts" th:href="@{/logout}"> Выход</a>
+    </p>
+
 <body>
-
-
-<p align="right" >
-    <a class="outFonts" th:href="@{/logout}"> Выход</a>
-</p>
-
+<workSpace>
+    <container>
 <div class="adminButtonCont">
 <form th:action="@{/admin/controlGroups}" method="POST">
     <input class="buttonControl buttons" type="submit" value="Управление группами"/>
@@ -20,6 +21,7 @@
     <input class="buttons buttonControl" type="submit" value="Управление тестами"/>
 </form>
 </div>
-
+        </container>
+    </workSpace>
 </body>
 </html>

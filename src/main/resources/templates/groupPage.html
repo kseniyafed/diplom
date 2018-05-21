@@ -7,30 +7,33 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
+<workSpace>
+    <container>
+<h1 th:text="'📈 Отчет по группе '+${groupName}"></h1>
 
-<h1 th:text="'Отчет по группе '+${groupName}"></h1>
-
-<table class="fonts">
+<table class="fonts resultTable">
     <thead>
 
-    <tr>
-        <td>Имя</td>
-        <td th:each="subject : ${subjects}" th:text="'Тема № '+${subject.num}"></td>
+        <th class="resultTh">Имя</th>
+        <th class="resultTh" th:each="subject : ${subjects}" th:text="'Тема № '+${subject.num}"></th>
 
-    </tr>
     </thead>
-    <tr th:each="student : ${students} ">
-        <td th:text="${student.getName()}"></td>
+    <tr class="resultTr" th:each="student : ${students} ">
+        <td class="resultTd" th:text="${student.getName()}"></td>
 
-        <td th:each="result : ${results}" th:if="${student.getId()}==${result.getUser().getId()}"
+        <td class="resultTd" th:each="result : ${results}" th:if="${student.getId()}==${result.getUser().getId()}"
             th:text="${result.mark}"></td>
+
     </tr>
 
 
 </table>
+        <br/>
+        </container>
+        </workSpace>
 
 <form th:action="@{/admin/controlGroups}" method="post">
 

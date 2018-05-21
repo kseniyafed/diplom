@@ -8,11 +8,12 @@
 <body>
 
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1 th:text="'Редактировать студента группы '+${groupName}"></h1>
+<workSpace>
+    <container>
+<h1 th:text="'📰Редактировать студента группы '+${groupName}"></h1>
 
 <form class="fonts" th:action="@{/groups/}+${groupId}+@{/updateStudent/}+${userId}" method="post">
     <label for="name">ФИО</label>:
@@ -25,6 +26,8 @@
     <input class="buttons" type="submit" value="Сохранить"/>
     </div>
 </form>
+        </container>
+    </workSpace>
 <form th:action="@{/groups/editGroup/}+${groupId}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>

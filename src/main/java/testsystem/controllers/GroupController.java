@@ -18,7 +18,6 @@ import testsystem.services.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.acl.Group;
 import java.sql.SQLException;
 
 @Controller
@@ -110,7 +109,7 @@ public class GroupController {
         String[] parseRequest = request.getServletPath().split("/");
         userService.updateUser(Long.valueOf(parseRequest[4]), name, login, password);
         response.sendRedirect("/groups/editGroup/" + Long.valueOf(parseRequest[2]));
-        //return "createGroupPage";
+
     }
 
     @RequestMapping(value = "/saveChanges/**", method = RequestMethod.POST)

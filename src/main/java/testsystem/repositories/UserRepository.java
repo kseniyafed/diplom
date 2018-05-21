@@ -17,5 +17,3 @@ public interface UserRepository extends PagingAndSortingRepository<User,Long> {
 
 }
 
-
-//@Query("select u from User u where u.password = :password and u.login = :login")

@@ -7,20 +7,22 @@
 </head>
 <body >
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-<h1> Группы </h1>
+<workSpace>
+    <container>
+<h1> 👥Группы </h1>
 
 <form th:action="@{/groups/createGroup}" method="post">
     <div class="addButtons">
-        <input type="submit" value="Submit"/>
+        <input type="submit"  value="Submit"/>
     </div>
 </form>
 <table>
     <tr th:each="group: ${groups}">
         <td>
-            <a class="fonts" th:href="@{/groups/groupPage/}+${group.id}" th:text="${group.name}"> </a>
+            <a class="fonts" th:href="@{/groups/groupPage/}+${group.id}"  th:text="'🔘' + ${group.name}"> </a>
         </td>
 
         <td>
@@ -34,13 +36,16 @@
         <td>
             <form th:action="@{/groups/editGroup/}+${group.id}" method="post">
                 <div class="editButtons">
-                    <input type="submit" value="Submit"/>
+                    <input type="submit"  value="Submit"/>
                 </div>
             </form>
         </td>
+
+
     </tr>
 </table>
-
+        </container>
+</workSpace>
 <form th:action="@{/admin}" method="post">
     <div class="backButtons">
     <input type="submit" value="Submit"/>

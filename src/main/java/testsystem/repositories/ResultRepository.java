@@ -6,7 +6,6 @@ import testsystem.models.Result;
 import testsystem.models.Subject;
 import testsystem.models.User;
 
-
 @Repository
 public interface ResultRepository extends CrudRepository<Result,Long> {
 

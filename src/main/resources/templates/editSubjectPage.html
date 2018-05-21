@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1>Редактор тем</h1>
+<workSpace>
+    <container>
+<h1>📋Редактор тем</h1>
 
 <form class="fonts" th:action="@{/tests/saveChanges/}+${subjectId}" method="post">
     <label for="subjectName">Тема</label>:
@@ -25,8 +26,6 @@
     </div>
 </form>
 
-<h2>Вопросы</h2>
-
 <form th:action="@{/tests/addQuestion/}+${subjectId}" method="post">
     <div class="addButtons">
         <input type="submit" value="Submit"/>
@@ -37,8 +36,8 @@
 
 
     <tr th:each="question : ${questions}">
-        <td th:text="${question.num}">num</td>
-        <td th:text="${question.formulation}">formulation</td>
+        <td th:text="'🔘'+${question.num}+ ${question.formulation}">num</td>
+
         <td>
             <form th:action="@{/tests/}+${subjectId}+@{/deleteQuestion/}+${question.id}" method="post">
                 <div class="deleteButtons">
@@ -56,7 +55,8 @@
         </td>
     </tr>
 </table>
-
+        </container>
+        </workSpace>
 
 
 <form th:action="@{/tests}" method="post">

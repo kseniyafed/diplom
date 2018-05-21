@@ -8,11 +8,12 @@
 <body>
 
 
-<p align="right">
+<p class="headerStyle" align="right">
     <a class="outFonts" th:href="@{/logout}"> Выход</a>
 </p>
-
-<h1 th:text="'Редактировать вопрос темы '+${subjectName}"></h1>
+<workSpace>
+    <container>
+<h1 th:text="'📄Редактировать вопрос темы '+${subjectName}"></h1>
 
 <form class="fonts" th:action="@{/tests/}+${subjectId}+@{/updateQuestion/}+${questionId}" method="post">
     <label for="questionNum">Номер</label>:
@@ -60,8 +61,8 @@
         </td>
     </tr>
 </table>
-
-
+        </container>
+    </workSpace>
 <form th:action="@{/tests/editSubject/}+${subjectId}" method="post">
     <div class="backButtons">
         <input type="submit" value="Submit"/>
